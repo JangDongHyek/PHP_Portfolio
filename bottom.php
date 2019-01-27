@@ -25,8 +25,9 @@ $('#form-repassword').keyup(function(){
 $('#sign_ok_btn').click(function(){
   var pwd = $('#form-password').val();
   var repwd = $('#form-repassword').val();
+  var name = $('form-username').val();
 
-  if(pwd == repwd) {
+  if(pwd == repwd && pwd != "") {
     $('#sign_form').submit();
   } else {
     alert("Password check Please");

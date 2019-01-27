@@ -20,13 +20,16 @@ Released   : 20130902
 <link href="default.css" rel="stylesheet" type="text/css" media="all" />
 <link href="fonts.css" rel="stylesheet" type="text/css" media="all" />
 
+
+
 <!--[if IE 6]><link href="default_ie6.css" rel="stylesheet" type="text/css" /><![endif]-->
 
 </head>
 <body>
+<div id="header-wrapper">
 	<div id="header" class="container">
 		<div id="logo">
-      <h1><a href="index.php">JangDongHyek</a></h1>
+			<h1><a href="index.php">JangDongHyek</a></h1>
 		</div>
 		<div id="menu">
 			<ul>
@@ -36,3 +39,4 @@ Released   : 20130902
 			</ul>
 		</div>
 	</div>
+</div>
