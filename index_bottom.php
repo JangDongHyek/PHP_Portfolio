@@ -7,5 +7,38 @@
 	<p>&copy; Untitled. All rights reserved. | Photos by <a href="http://fotogrph.com/">Fotogrph</a> | Design by <a href="http://templated.co" rel="nofollow">TEMPLATED</a>.</p>
 </div>
 
+<script src="assets/js/jquery-1.11.1.min.js"></script>
+<script src="assets/js/scripts.js"></script>
+<script src="smarteditor2-master/dist/js/service/HuskyEZCreator.js" charset="utf-8"></script>
+
+<script type="text/javascript">
+	$('#btn_write').click(function(){
+		$(location).attr('href','write.php');
+	});
+
+	var oEditors = [];
+	nhn.husky.EZCreator.createInIFrame({
+
+	    oAppRef: oEditors,
+
+	    elPlaceHolder: "ir1",
+
+	    sSkinURI: "smarteditor2-master/dist/SmartEditor2Skin.html",
+
+	    fCreator: "createSEditor2"
+
+	});
+
+	$("#submit_write").click(function(){
+	        //id가 smarteditor인 textarea에 에디터에서 대입
+	        oEditors.getById["ir1"].exec("UPDATE_CONTENTS_FIELD", []);
+	        // 이부분에 에디터 validation 검증
+
+	        //폼 submit
+	        $("#frm_write").submit();
+	    })
+
+
+</script>
 </body>
 </html>

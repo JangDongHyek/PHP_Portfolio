@@ -153,6 +153,21 @@
 		cursor: pointer;
 	}
 
+	#write_title {
+		width: 100%;
+		margin-bottom: 20px;
+	}
+
+	.write_file {
+		margin-top: 20px;
+		text-align: right;
+	}
+
+	.write_file input {
+		border: 1px solid black;
+	}
+
+
 /*********************************************************************************/
 /* Image Style                                                                   */
 /*********************************************************************************/

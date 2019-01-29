@@ -25,7 +25,7 @@ require_once('index_top.php');
 </table>
 
 <div class="write">
-  <input type="button" name="" value="Write">
+  <input type="button" id="btn_write" value="Write">
 </div>
 
 <div class="paging">
