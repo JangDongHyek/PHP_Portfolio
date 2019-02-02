@@ -34,8 +34,16 @@ Released   : 20130902
 		<div id="menu">
 			<ul>
 				<li><a href="index.php" accesskey="1" title="">Homepage</a></li>
-				<li><a href="boder.php" accesskey="2" title="">Boder</a></li>
-				<li><a href="login.php" accesskey="3" title="">Login</a></li>
+				<li><a href="board.php" accesskey="2" title="">Board</a></li>
+				<?php
+
+					session_start();
+					if(isset($_SESSION['id']) == '') {
+						echo '<li><a href="login.php" accesskey="3" title="">Login</a></li>';
+					} else {
+						echo '<li><a href="logout.php" accesskey="3" title="">Logout</a></li>';
+					}
+				 ?>
 			</ul>
 		</div>
 	</div>

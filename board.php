@@ -1,9 +1,12 @@
 <?php
 require_once('index_top.php');
+require_once('connect.php');
+
+
  ?>
 <div id="page" class="container">
 	<div class="title">
-		<h2>Boder</h2>
+		<h2>Board</h2>
 	</div>
 
   <table class="table">
@@ -25,17 +28,23 @@ require_once('index_top.php');
 </table>
 
 <div class="write">
-  <input type="button" id="btn_write" value="Write">
+  <?php
+  session_start();
+  if(isset($_SESSION['id']) == '') {
+
+  } else {
+    echo '<input type="button" id="btn_write" value="Write">';
+  }
+   ?>
+
 </div>
 
 <div class="paging">
   <span><a href="#"><</a></span>
   <span><a href="#">1</a></span>
   <span><a href="#">2</a></span>
-  <span><a href="#">3</a></span>
-  <span><a href="#">4</a></span>
-  <span><a href="#">5</a></span>
   <span><a href="#">></a></span>
+
 </div>
 
 <?php

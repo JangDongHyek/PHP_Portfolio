@@ -7,7 +7,7 @@ require_once('index_top.php');
 	</div>
 
 <div class="">
-  <form class="form_write" action="write_process.php" method="post" id="frm_write">
+  <form class="form_write" action="write_process.php" method="post" id="frm_write" enctype="multipart/form-data">
     <div class="write_title">
         <input type="text" name="title" id="write_title" value="" placeholder="Title..">
     </div>
@@ -24,7 +24,7 @@ require_once('index_top.php');
 
 
     <div class="write">
-    <input type="button" id="submit_write" value="Write" class="btn_write">
+      <input type="button" id="submit_write" value="Write" class="btn_write">
     </div>
 
   </form>
