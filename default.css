@@ -110,7 +110,7 @@
 	}
 
 	.write input{
-		width: 70px;
+		width: 100px;
 		height: 30px;
 		font-size: 23px;
 		color: white;
@@ -131,6 +131,7 @@
 	}
 
 	.description {
+		margin-top: 30px;
 		font-size: 25px;
 	}
 
@@ -167,7 +168,25 @@
 		border: 1px solid black;
 	}
 
+	.subtitle {
+		border-bottom: 1px solid black;
+		padding-bottom: 5px;
+	}
+	#st_name {
+		font-size: 15px;
+	}
 
+	#st_like {
+		font-size: 15px;
+	}
+
+	#btn_modify {
+		margin-left: 5%;
+	}
+
+	#btn_delete {
+		margin-left: 1%;
+	}
 /*********************************************************************************/
 /* Image Style                                                                   */
 /*********************************************************************************/

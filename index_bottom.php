@@ -16,6 +16,16 @@
 		$(location).attr('href','write.php');
 	});
 
+	$('#btn_delete').click(function(){
+		var result = confirm("Are you sure you want to delete it?");
+
+		if (result) {
+			$('#delete_frm').submit();
+		} else {
+
+		}
+	})
+
 	var oEditors = [];
 	nhn.husky.EZCreator.createInIFrame({
 
@@ -37,6 +47,8 @@
 	        //폼 submit
 	        $("#frm_write").submit();
 	    })
+
+
 
 
 </script>

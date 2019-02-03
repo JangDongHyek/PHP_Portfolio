@@ -9,7 +9,7 @@ $result = mysqli_query($conn,$sql);
 $row = mysqli_fetch_array($result);
 
 if ($row != null) {
-  echo "<script>alert(\"ID가 중복됩니다\")</script>";
+  echo "<script>alert(\"ID is overlap\")</script>";
   echo "<script>history.back()</script>";
 } else {
   $sql = "
@@ -23,9 +23,9 @@ if ($row != null) {
   $result = mysqli_query($conn,$sql);
 
   if ($result === false) {
-    echo "<script>alert(\"회원가입에 문제가 생겼습니다\")</script>";
+    echo "<script>alert(\"Problem to Signup\")</script>";
   } else {
-    echo "<script>alert(\"회원가입에 성공하셨습니다\")</script>";
+    echo "<script>alert(\"Signup succeed\")</script>";
     echo "<script>location.href=\"login.php\"</script>";
   }
 }

@@ -4,6 +4,8 @@ session_start();
 $id = $_SESSION['id'];
 $title =  $_POST['title'];
 $ir1 = $_POST['ir1'];
+$board_idx = $_POST['board_idx'];
+$prev = $_POST['filename'];
 $target_dir = "data/";
 $name = $_FILES['file']['name'];
 
@@ -13,29 +15,29 @@ $row = mysqli_fetch_array($result);
 $user_idx = $row['user_idx'];
 
 $sql = "
-INSERT INTO board
-	(user_idx,
-	title,
-	description,
-	likes,
-	created)
-VALUES
-	({$user_idx},
-	'{$title}',
-	'{$ir1}',
-	0,
-	NOW() );
+UPDATE board
+SET
+  title = '{$title}',
+  description = '{$ir1}'
+WHERE
+  board_idx = {$board_idx}
 ";
 
 $result = mysqli_query($conn,$sql);
 
 if ($result === false) {
   echo "<script>alert(\"Failed to Write the post\")</script>";
+  echo "<script>location.href=\"board.php\"</script>";
 } else {
 
   if ($name['name'] == "") {
     echo "<script>location.href=\"board.php\"</script>";
   } else {
+
+    unlink("data/{$prev}");
+
+    $sql = "DELETE FROM file WHERE board_idx = {$board_idx}";
+    $result = mysqli_query($conn,$sql);
 
     $file_result = opendir("data");
     $number = 0;
@@ -43,11 +45,6 @@ if ($result === false) {
       $number++;
     }
     move_uploaded_file($_FILES['file']['tmp_name'],"$target_dir$number$name");
-
-    $sql = "SELECT LAST_INSERT_ID()";
-    $result = mysqli_query($conn,$sql);
-    $row = mysqli_fetch_array($result);
-    $board_idx = $row['LAST_INSERT_ID()'];
 
     $sql = "
     INSERT INTO file
@@ -62,6 +59,7 @@ if ($result === false) {
 
     if ($result === false) {
       echo "<script>alert(\"Failed to Write the post\")</script>";
+      echo "<script>location.href=\"board.php\"</script>";
     } else {
       echo "<script>location.href=\"board.php\"</script>";
     }
