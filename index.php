@@ -2,7 +2,7 @@
 require_once('index_top.php');
 require_once('connect.php');
 
-$sql = "SELECT * FROM board ORDER BY likes DESC LIMIT 0,5";
+$sql = "SELECT * FROM board ORDER BY likes DESC LIMIT 0,6";
 $result = mysqli_query($conn,$sql);
 
 

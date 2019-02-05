@@ -53,7 +53,7 @@ $like_chk = mysqli_fetch_array($result);
   if ($file['filename'] == "") {
 
   } else {?>
-      <img src="data/<?=$file['filename']?>" width="100%" height="50%"/>
+      <img src="data/<?=$file['filename']?>" width="50%" height="50%"/>
 <?php
     }
  ?>
@@ -71,9 +71,15 @@ $like_chk = mysqli_fetch_array($result);
 <?php
 }
  ?>
+<?php
+if(isset($_SESSION['id']) == '') {
 
+} else {?>
   <input type="button" name="" value="like" onclick="like()">
   <input type="hidden" name="board_idx" value="<?=$board_idx?>">
+  <?php
+}
+   ?>
 </div>
 </form>
 <?php

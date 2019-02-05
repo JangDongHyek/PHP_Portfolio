@@ -1,0 +1,74 @@
+CREATE DATABASE phpboder
+------------------------------------------
+
+CREATE TABLE user (
+user_idx INT(11) NOT NULL AUTO_INCREMENT,
+id VARCHAR(13) NOT NULL,
+password VARCHAR(13) NOT NULL,
+PRIMARY KEY(user_idx)
+);
+***************************
+INSERT INTO user
+	(id, 
+	password)
+VALUES
+	("","");
+****************************
+
+CREATE TABLE board (
+board_idx INT(11) NOT NULL AUTO_INCREMENT,
+user_idx INT(11) NOT NULL,
+title VARCHAR(30) NOT NULL,
+description MEDIUMTEXT, 
+likes INT(11) NOT NULL,
+created DATETIME,
+PRIMARY KEY(board_idx),
+FOREIGN KEY(user_idx)
+REFERENCES user(user_idx) ON DELETE CASCADE
+);
+******************************************
+INSERT INTO board
+	(user_idx,
+	title,
+	description,
+	likes,
+	created)
+VALUES
+	(user_idx, 
+	"title",
+	"description",
+	likes,
+	NOW() );
+***********************************
+
+CREATE TABLE file (
+file_idx INT(11) NOT NULL AUTO_INCREMENT,
+board_idx INT(11) NOT NULL,
+filename VARCHAR(40) NOT NULL,
+PRIMARY KEY(file_idx),
+FOREIGN KEY(board_idx)
+REFERENCES board(board_idx) ON DELETE CASCADE
+);
+******************************************
+INSERT INTO file
+	(board_idx,
+	filename)
+VALUES
+	(board_idx, 
+	"filename");
+***********************************
+
+CREATE TABLE like_chk (
+user_idx INT(11) NOT NULL,
+board_idx INT(11) NOT NULL,
+FOREIGN KEY(board_idx)
+REFERENCES board(board_idx) ON DELETE CASCADE
+);
+******************************************
+INSERT INTO like_chk
+	(user_idx,
+	board_idx)
+VALUES
+	(user_idx, 
+	board_idx);
+***********************************
