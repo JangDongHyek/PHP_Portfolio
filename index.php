@@ -1,5 +1,13 @@
 <?php
 require_once('index_top.php');
+require_once('connect.php');
+
+$sql = "SELECT * FROM board ORDER BY likes DESC LIMIT 0,5";
+$result = mysqli_query($conn,$sql);
+
+
+
+
  ?>
 <div id="page" class="container">
 	<div class="title">
@@ -7,38 +15,92 @@ require_once('index_top.php');
 	</div>
 	<div class="boxA">
 		<div class="box">
-			<img src="images/img02.jpg" width="320" height="180" alt="" />
-			<h3>Title 1  </h3>
-			<a href="#" class="button">Read More</a>
+      <?php
+      $row = mysqli_fetch_array($result);
+      $fsql = "SELECT * FROM file WHERE board_idx = {$row['board_idx']}";
+      $fresult = mysqli_query($conn,$fsql);
+      $file = mysqli_fetch_array($fresult);
+      if ($file['filename'] == "") {
+          $file['filename'] = "no.gif";
+      }
+      echo "<img src=\"data/{$file['filename']}\" width=\"320\" height=\"180\"/>";
+			echo "<h3>{$row['title']}</h3>";
+			echo "<a href=\"view.php?board_idx={$row['board_idx']}\" class=\"button\">Read More</a>";
+       ?>
 		</div>
 		<div class="box">
-			<img src="images/img05.jpg" width="320" height="180" alt="" />
-			<h3>Title 2</h3>
-			<a href="#" class="button">Read More</a>
+      <?php
+      $row = mysqli_fetch_array($result);
+      $fsql = "SELECT * FROM file WHERE board_idx = {$row['board_idx']}";
+      $fresult = mysqli_query($conn,$fsql);
+      $file = mysqli_fetch_array($fresult);
+      if ($file['filename'] == "") {
+          $file['filename'] = "no.gif";
+      }
+      echo "<img src=\"data/{$file['filename']}\" width=\"320\" height=\"180\"/>";
+			echo "<h3>{$row['title']}</h3>";
+			echo "<a href=\"view.php?board_idx={$row['board_idx']}\" class=\"button\">Read More</a>";
+       ?>
 		</div>
 	</div>
 	<div class="boxB">
 		<div class="box">
-			<img src="images/img03.jpg" width="320" height="180" alt="" />
-			<h3>Title 3</h3>
-			<a href="#" class="button">Read More</a>
+      <?php
+      $row = mysqli_fetch_array($result);
+      $fsql = "SELECT * FROM file WHERE board_idx = {$row['board_idx']}";
+      $fresult = mysqli_query($conn,$fsql);
+      $file = mysqli_fetch_array($fresult);
+      if ($file['filename'] == "") {
+        $file['filename'] = "no.gif";
+      }
+      echo "<img src=\"data/{$file['filename']}\" width=\"320\" height=\"180\"/>";
+			echo "<h3>{$row['title']}</h3>";
+			echo "<a href=\"view.php?board_idx={$row['board_idx']}\" class=\"button\">Read More</a>";
+       ?>
 		</div>
 		<div class="box">
-			<img src="images/img06.jpg" width="320" height="180" alt="" />
-			<h3>Title 4</h3>
-			<a href="#" class="button">Read More</a>
+      <?php
+      $row = mysqli_fetch_array($result);
+      $fsql = "SELECT * FROM file WHERE board_idx = {$row['board_idx']}";
+      $fresult = mysqli_query($conn,$fsql);
+      $file = mysqli_fetch_array($fresult);
+      if ($file['filename'] == "") {
+        $file['filename'] = "no.gif";
+      }
+      echo "<img src=\"data/{$file['filename']}\" width=\"320\" height=\"180\"/>";
+			echo "<h3>{$row['title']}</h3>";
+			echo "<a href=\"view.php?board_idx={$row['board_idx']}\" class=\"button\">Read More</a>";
+       ?>
 		</div>
 	</div>
 	<div class="boxC">
 		<div class="box">
-			<img src="images/img04.jpg" width="320" height="180" alt="" />
-			<h3>Title 5</h3>
-			<a href="#" class="button">Read More</a>
+      <?php
+      $row = mysqli_fetch_array($result);
+      $fsql = "SELECT * FROM file WHERE board_idx = {$row['board_idx']}";
+      $fresult = mysqli_query($conn,$fsql);
+      $file = mysqli_fetch_array($fresult);
+      if ($file['filename'] == "") {
+        $file['filename'] = "no.gif";
+      }
+      echo "<img src=\"data/{$file['filename']}\" width=\"320\" height=\"180\"/>";
+			echo "<h3>{$row['title']}</h3>";
+			echo "<a href=\"view.php?board_idx={$row['board_idx']}\" class=\"button\">Read More</a>";
+       ?>
 		</div>
 		<div class="box">
-			<img src="images/img07.jpg" width="320" height="180" alt="" />
-			<h3>Title 6</h3>
-			<a href="#" class="button">Read More</a>
+      <?php
+      $row = mysqli_fetch_array($result);
+      $fsql = "SELECT * FROM file WHERE board_idx = {$row['board_idx']}";
+      $fresult = mysqli_query($conn,$fsql);
+      $file = mysqli_fetch_array($fresult);
+      if ($file['filename'] == "") {
+        $file['filename'] = "no.gif";
+      }
+      echo "<img src=\"data/{$file['filename']}\" width=\"320\" height=\"180\"/>";
+			echo "<h3>{$row['title']}</h3>";
+			echo "<a href=\"view.php?board_idx={$row['board_idx']}\" class=\"button\">Read More</a>";
+       ?>
 		</div>
 	</div>
 <?php

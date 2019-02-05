@@ -148,10 +148,41 @@
 		margin: 30px;
 		height: 40px;
 		font-size: 23px;
+		background: white;
+		border: 1px solid black;
+		/* background: #6666FF;
+		border: 1px solid #6666FF; */
+		border-radius: 10px;
+		cursor: pointer;
+	}
+
+	.like :hover {
+		background: #6666FF;
+		border: 1px solid #6666FF;
+	}
+
+	.likeon {
+		text-align: center;
+		overflow: hidden;
+		margin: 0em auto;
+		width: 100%;
+		margin-top: 30px;
+	}
+
+	.likeon input{
+		width: 100px;
+		margin: 30px;
+		height: 40px;
+		font-size: 23px;
 		background: #6666FF;
 		border: 1px solid #6666FF;
 		border-radius: 10px;
 		cursor: pointer;
+	}
+
+	.likeon :hover {
+		background: white;
+		border: 1px solid black;
 	}
 
 	#write_title {

@@ -27,11 +27,8 @@ $result = mysqli_query($conn,$query);
 $first_page = (($block - 1) * $block_set) + 1; // 첫번째 페이지번호
 $last_page = min ($total_page, $block * $block_set); // 마지막 페이지번호
 
-$prev_page = $page - 1; // 이전페이지
-$next_page = $page + 1; // 다음페이지
-
-$prev_block = $block - 1; // 이전블럭
-$next_block = $block + 1; // 다음블럭
+$prev_page = $page - 5; // 이전페이지
+$next_page = $page + 5; // 다음페이지
 
 // 이전블럭을 블럭의 마지막으로 하려면...
 $prev_block_page = $prev_block * $block_set; // 이전블럭 페이지번호

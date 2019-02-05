@@ -24,7 +24,22 @@
 		} else {
 
 		}
+	});
+
+	function like() {
+		var dd = $('.subtitle');
+		$.ajax({
+			url: "like.php",
+			type: "POST",
+			data: $("#frm_like").serialize(),
+			success:function(data) {
+				location.reload();
+			},
+			error: function() {
+				alert("like error");
+			}
 	})
+};
 
 	var oEditors = [];
 	nhn.husky.EZCreator.createInIFrame({
@@ -40,12 +55,17 @@
 	});
 
 	$("#submit_write").click(function(){
-	        //id가 smarteditor인 textarea에 에디터에서 대입
-	        oEditors.getById["ir1"].exec("UPDATE_CONTENTS_FIELD", []);
-	        // 이부분에 에디터 validation 검증
+					if ($("#write_title").val() == "") {
+						alert("Please Write title");
+					} else {
+						//id가 smarteditor인 textarea에 에디터에서 대입
+		        oEditors.getById["ir1"].exec("UPDATE_CONTENTS_FIELD", []);
+		        // 이부분에 에디터 validation 검증
 
-	        //폼 submit
-	        $("#frm_write").submit();
+		        //폼 submit
+		        $("#frm_write").submit();
+					}
+
 	    })
 
 

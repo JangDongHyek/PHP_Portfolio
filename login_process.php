@@ -13,6 +13,7 @@ if ($row != null) {
   if($row['password'] == $password){
     session_start();
     $_SESSION['id'] = $id;
+    $_SESSION['user_idx'] = $row['user_idx'];
     echo "<script>location.href=\"index.php\"</script>";
   } else {
       echo "<script>alert(\"Incorrect password\")</script>";

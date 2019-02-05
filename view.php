@@ -17,6 +17,11 @@ $result = mysqli_query($conn,$sql);
 $name = mysqli_fetch_array($result);
 
 session_start();
+$user_idx = $_SESSION['user_idx'];
+$sql = "SELECT * FROM like_chk WHERE user_idx = {$user_idx} AND board_idx = {$board_idx}";
+$result = mysqli_query($conn,$sql);
+$like_chk = mysqli_fetch_array($result);
+
  ?>
 <div id="page" class="container">
 	<div class="title">
@@ -53,16 +58,24 @@ session_start();
     }
  ?>
 
-
-
-
   <?=$board['description']?>
 </div>
 
-<div class="like">
-  <input type="button" name="" value="like">
-  <input type="button" name="" value="dis like">
+<form id="frm_like" action="like.php" method="post">
+  <?php
+  if ($like_chk == null) {?>
+      <div class="like" id="like">
+  <?php
+} else { ?>
+  <div class="likeon" id="like">
+<?php
+}
+ ?>
+
+  <input type="button" name="" value="like" onclick="like()">
+  <input type="hidden" name="board_idx" value="<?=$board_idx?>">
 </div>
+</form>
 <?php
 require_once('index_bottom.php');
  ?>
